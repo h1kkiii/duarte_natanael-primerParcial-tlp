@@ -24,8 +24,12 @@ $form.addEventListener("submit", async (e) => {
   }).then((response) => {
     if (response.ok) {
       // ! REDIRIGIR AL USUARIO A LA PÁGINA PRINCIPAL
+      window.location.href = "/index";
     } else {
       // ! MOSTRAR UN MENSAJE DE ERROR AL USUARIO
+      console.log(
+        "Ha ocurrido un error al intentar redirigirte, por favor, intenta de nuevo."
+      );
     }
   });
 });
