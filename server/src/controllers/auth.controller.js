@@ -23,7 +23,13 @@ export const signInCtrl = async (req, res) => {
 
 export const signUpCtrl = async (req, res) => {
   try {
-    // ! Completar la función signUpCtrl
+    const newUser = ({ id, username, email, password } = req.body);
+
+    const token = await createJwt(user.id);
+
+    res.cookie("token", token, { httpOnly: true });
+
+    res.status(200).json(newUser, { message: "Registration completed" });
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
